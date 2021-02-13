@@ -1,0 +1,32 @@
+{
+  "name": "Tangent",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate"
+  },
+  "dependencies": {
+    "@nuxt/typescript-runtime": "^2.0.1",
+    "@nuxtjs/pwa": "^3.3.5",
+    "core-js": "^3.8.3",
+    "gh-pages": "^3.1.0",
+    "jquery": "^3.5.1",
+    "latex-to-js": "https://github.com/Crownie/latex-to-js",
+    "mathjs": "^9.2.0",
+    "mathquill": "^0.10.1-a",
+    "nuxt": "^2.14.12"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@nuxt/types": "^2.14.12",
+    "@nuxt/typescript-build": "^2.0.4",
+    "@nuxtjs/vuetify": "^1.11.3",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  }
+}
