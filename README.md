@@ -32,9 +32,30 @@ Polylines are drawn "parallel" to the x and y axes, tracing out the shape of the
 
 Currently, the app is a bit slow, likely because of the amount of computation it does for each graph. I've tried to combat this with caching, but unfortunately the amount of data needed to graph each function is quite large, and the browser is only able to cache up to 3 functions at a time.
 
+Many times, there were compatibility issues between Nuxt.js and other modules, but they were solved by perserverance and reading Stack Overflow articles.
+
 
 ## Accomplishments that we're proud of
 
+One of my achievements with Tangent is that it's able to use readily available tools on the web to create something 
+that isn't as readily available.
+
+I'm proud that I was able to integrate Three.js into Nuxt, and create a reactive and interactive 3D model.
+
+Most of all, I'm proud that I was able to take an idea and turn it into a reality, over the course of just a weekend!
+
 ## What we learned
 
+I learned a lot about Three.js and I have gained some motivation to use it more in future projects.
+I learned that a lot can be done if you focus on not reinventin the wheel, but modifying existing ones. This project 
+was a lot like pottery; I had to put many models together and then smoothen the boundaries between them to make everything seamless.
+
 ## What's next for Tangent - 3D Graphing Calculator
+
+I intend to keep working on Tangent! Here's a tentative roadmap for the project:
+
+* Find an efficient way to cache data or reduce compute time
+* Reduce lag between user input and render
+* Allow the user to select points within the graph, as in Desmos
+* Support complex valued functions
+* and more!

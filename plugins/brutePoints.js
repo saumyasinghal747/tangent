@@ -14,9 +14,10 @@ export default function brutePoints(latex, step=0.1) {
 
   }
 
-  const input = latex_to_js(latex)
+  let input;
   let f
   try {
+    input = latex_to_js(latex)
     f = simplify(parse(input))
     let tester = f.evaluate({ x: 0, y: 0 }) // lol just bear with me
     assert(latex)
@@ -27,7 +28,7 @@ export default function brutePoints(latex, step=0.1) {
   const length = Math.round(21/step);
   //console.log(length)
   let xarray = Array.from({ length }, () => [])
-  let yarray = Array.from({ length }, () => [])
+  let yarray = Array.from({ length }, () => []);
   //const points = []
   let yc = 0;
   let xc = 0;

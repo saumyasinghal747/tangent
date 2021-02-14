@@ -39,8 +39,10 @@ stateless
       app
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-
-      <v-toolbar-title v-text="title" />
+      <v-app-bar-nav-icon>
+        <img class='' :src='Favicon'/>
+      </v-app-bar-nav-icon>
+      <v-toolbar-title class='ml-3' v-text="title" />
       <v-spacer />
       <v-btn
         icon
@@ -65,6 +67,7 @@ stateless
 </template>
 
 <script>
+import * as Favicon from '~/static/favicon.svg'
 import generatePoints from '~/plugins/generatePoints';
 import brutePoints from '~/plugins/brutePoints'
 import Logo from '~/components/Logo.vue'
@@ -79,6 +82,7 @@ export default {
 
   data () {
     return {
+      Favicon,
       clipped: true,
       drawer: true,
       fixed: true,
