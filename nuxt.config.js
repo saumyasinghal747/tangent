@@ -3,7 +3,9 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  generate: {
+    fallback: "404.html"
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - Tangent',
@@ -29,7 +31,9 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {src:'~/plugins/mathquill.js', mode:'client'},
-    {src:'~/plugins/jquery.js', mode:'client'}
+    {src:'~/plugins/jquery.js', mode:'client'},
+    {src:'~/plugins/logging.js', mode:'client'},
+    {src:'~/plugins/vue-threejs.js', mode:'client'}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -49,6 +53,9 @@ export default {
     '@nuxtjs/pwa',
   ],
 
+  router: {
+    base: '/tangent/'
+  },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {

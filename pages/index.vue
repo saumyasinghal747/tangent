@@ -7,23 +7,28 @@
       :clipped="true"
       fixed
       app
+stateless
     >
       <v-list>
         <v-list-item
-
+          v-for='n in 1'
+          :key='n'
         >
           <v-list-item-action>
-            <v-icon>mdi-circle</v-icon>
+            <v-icon>mdi-circle-outline</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <!-- mathquill field here -->
-            <span></span>
+            <client-only>
+              <mq-field :model-value='e' @update:model-value='e = $event;'  />
+            </client-only>
+
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar
-      :clipped-left="clipped"
+      :clipped-left="true"
       fixed
       app
     >
@@ -38,11 +43,11 @@
         <v-icon>mdi-menu</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-main>
+    <v-main style='padding:none'>
       <v-container>
+      <graph/>
 
-
-
+        {{generatePoints(e)}}
       </v-container>
     </v-main>
     <v-footer
@@ -55,6 +60,7 @@
 </template>
 
 <script>
+import generatePoints from '~/plugins/generatePoints';
 import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
@@ -64,29 +70,34 @@ export default {
     VuetifyLogo
   },
   layout:'calc',
+
   data () {
     return {
-      name:'calc',
-      clipped: false,
+      clipped: true,
       drawer: true,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-circle',
-          title: 'Calculator',
-          to: '/'
-        },
-        {
-          icon: 'mdi-help',
-          title: 'Help',
-          to: '/help'
-        }
-      ],
-      miniVariant: true,
+      fixed: true,
+      miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Tangent'
+      title: 'Tangent',
+      e:"\\sqrt{x}",
+      equations:[
+
+      ]
     }
+  },
+  methods:{
+    generatePoints
   }
 }
 </script>
+<style>
+.v-list-item {
+  border-top:solid 1px rgba(100,100,100,0.9);
+  border-bottom:solid 1px rgba(100,100,100,0.9);
+}
+
+.v-main{
+  padding-left:64px !important;
+}
+</style>
