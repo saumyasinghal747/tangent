@@ -1,7 +1,7 @@
 {
   "name": "Tangent",
   "short_name": "Tangent",
-  "description": "## Build Setup",
+  "description": "Whenever we want a graphing calculator, the go-to site is generally [Desmos](https://desmos.com/). This year, I took Analysis at school, and during class, we often had to graph in 3D.",
   "icons": [
     {
       "src": "/tangent/_nuxt/icons/icon_64x64.5f6a36.png",
