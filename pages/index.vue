@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <client-only>
+
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -11,11 +11,11 @@ stateless
     >
       <v-list>
         <v-list-item
-          v-for='n in 1'
-          :key='n'
+          v-for='({e, c}, i) in equations'
+          :key='i'
         >
           <v-list-item-action>
-            <v-icon>mdi-circle-outline</v-icon>
+            <v-icon :style="`color:${hexToString(c)}`">mdi-circle-outline</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <!-- mathquill field here -->
@@ -43,11 +43,10 @@ stateless
         <v-icon>mdi-menu</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-main style='padding:none'>
+    <v-main >
       <v-container>
-      <graph/>
+        <client-only><graph  :pointSets='pointSets' /></client-only>
 
-        {{generatePoints(e)}}
       </v-container>
     </v-main>
     <v-footer
@@ -55,12 +54,13 @@ stateless
       app
     >
       <span>&copy; {{ new Date().getFullYear() }} Saumya Singhal</span>
-    </v-footer></client-only>
+    </v-footer>
   </v-container>
 </template>
 
 <script>
 import generatePoints from '~/plugins/generatePoints';
+import brutePoints from '~/plugins/brutePoints'
 import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
@@ -80,14 +80,31 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Tangent',
-      e:"\\sqrt{x}",
+      e:"\\sqrt{ 36 -  x^2 - y^2}",
       equations:[
-
+        {e:"\\sqrt{ 36 -  x^2 - y^2}",c:0x9988ff}, {e:"-\\sqrt{36-x^2-y^2}",c:0x44ff55}
       ]
     }
   },
   methods:{
-    generatePoints
+    generatePoints,
+    brutePoints,
+    hexToString(hex){
+      return "#"+hex.toString(16);
+    }
+  },
+  computed:{
+    points(){
+      const [x,y] =  this.brutePoints(this.e)
+      return {x,y}
+    },
+    pointSets(){
+        return this.equations.map(({e, c})=>{
+          const [x,y] =  this.brutePoints(e)
+          return {x,y,c}
+
+        })
+    }
   }
 }
 </script>

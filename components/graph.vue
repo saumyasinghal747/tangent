@@ -2,7 +2,7 @@
   <div id="demo">
     <client-only>
     <renderer :size="size">
-      <dat-gui :setup="uiSetup" :model="ui"></dat-gui>
+      <!---<dat-gui :setup="uiSetup" :model="ui"></dat-gui>--->
       <scene>
         <orbit-controls :position="ui.camera" :rotation="{ x: 2, y: 0, z: 3 }">
           <camera></camera>
@@ -29,12 +29,21 @@
                   <!-- the axes -->
                   <cube :texture="t" :size="1"></cube>
                   <!--gonna need a for-loop for those lines!-->
-                  <Line3D :color='0x28a745' :coord1='[0,0,0]' :coord2='[1,1,0]' />
-                  <Line3D :color='0x28a745' :coord1='[1,1,0]' :coord2='[2,4,0]' />
-                  <Line3D :color='0x28a745' :coord1='[2,4,0]' :coord2='[3,9,0]' />
-                  <Line3D :color='0x28a745' :coord1='[0,0,0]' :coord2='[-1,1,0]' />
-                  <Line3D :color='0x28a745' :coord1='[-1,1,0]' :coord2='[-2,4,0]' />
-                  <Line3D :color='0x28a745' :coord1='[-2,4,0]' :coord2='[-3,9,0]' />
+                  <div v-for='({x,y,c}, s) of pointSets' :key='s'>
+                    <Line3DChain
+                      v-for='(xline, i) of x'
+                      :coords='xline'
+                      :key='"x"+i+":"+s'
+                      :color='c'
+                    />
+                    <Line3DChain
+                      v-for='(yline, j) of y'
+                      :coords='yline'
+                      :key='"y"+j+":"+s'
+                      :color='c'
+                    />
+                  </div>
+
                 </oimo-body>
               </space-object>
             </space-system>
@@ -42,13 +51,21 @@
         </div>
       </scene>
     </renderer></client-only>
+
   </div>
+
 </template>
 
 <script>
 import Cube from '@/components/Cube.vue'
 export default {
   components: { Cube },
+  props: {
+  pointSets:{type:Array}
+  /**
+   * array of objects {x, y, c}
+   **/
+},
   data() {
     const ui = this.getModel()
     return {
