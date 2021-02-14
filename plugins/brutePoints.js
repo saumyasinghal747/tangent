@@ -4,6 +4,16 @@ import * as assert from "assert"
 
 export default function brutePoints(latex, step=0.1) {
   // we assume the bounds to be -4, 4 and the y bounds to be the same
+  console.log("================",latex,"================")
+  // check if its saved
+  try{
+    const saved = localStorage.getItem(latex);
+    if (saved) return JSON.parse(saved);
+  }
+  catch (e){
+
+  }
+
   const input = latex_to_js(latex)
   let f
   try {
@@ -41,6 +51,12 @@ export default function brutePoints(latex, step=0.1) {
     }
     xc=0
     yc++;
+  }
+  try {
+    localStorage.setItem(latex, JSON.stringify([xarray, yarray]))
+  }
+  catch (e) {
+
   }
   return [xarray, yarray]
 }

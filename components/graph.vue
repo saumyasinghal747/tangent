@@ -24,10 +24,10 @@
 
           <oimo-world :options="{ gravity: [0, 0, 0] }">
             <space-system :m-scale="10 ** 4">
-              <space-object v-for="t in textures" :key="t">
+              <space-object >
                 <oimo-body :options="{ move: false, density: 1 }">
                   <!-- the axes -->
-                  <cube :texture="t" :size="1"></cube>
+                  <cube ></cube>
                   <!--gonna need a for-loop for those lines!-->
                   <div v-for='({x,y,c}, s) of pointSets' :key='s'>
                     <Line3DChain
@@ -69,7 +69,7 @@ export default {
   data() {
     const ui = this.getModel()
     return {
-      textures: ['cobblestone', 'diamond', 'redwool'],
+      //textures: ['cobblestone', 'diamond', 'redwool'],
       ui,
       uiSetup: this.setupPanel,
       size: {

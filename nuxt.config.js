@@ -33,7 +33,8 @@ export default {
     {src:'~/plugins/mathquill.js', mode:'client'},
     {src:'~/plugins/jquery.js', mode:'client'},
     {src:'~/plugins/logging.js', mode:'client'},
-    {src:'~/plugins/vue-threejs.js', mode:'client'}
+    {src:'~/plugins/vue-threejs.js', mode:'client'},
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

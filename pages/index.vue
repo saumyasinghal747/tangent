@@ -15,12 +15,18 @@ stateless
           :key='i'
         >
           <v-list-item-action>
-            <v-icon :style="`color:${hexToString(c)}`">mdi-circle-outline</v-icon>
+            <v-menu offset-y :close-on-content-click="false">
+              <template v-slot:activator="{on, attrs}">
+            <v-icon  v-bind="attrs" v-on="on"  :style="`color:${c}`">mdi-circle-outline</v-icon>
+
+              </template>
+              <v-color-picker show-swatches mode="hexa" v-model='equations[i].c' ></v-color-picker>
+            </v-menu>
           </v-list-item-action>
           <v-list-item-content>
             <!-- mathquill field here -->
             <client-only>
-              <mq-field :model-value='e' @update:model-value='e = $event;'  />
+              <mq-field :model-value='equations[i].e' @update:model-value='equations[i].e = $event;'  />
             </client-only>
 
           </v-list-item-content>
@@ -82,8 +88,9 @@ export default {
       title: 'Tangent',
       e:"\\sqrt{ 36 -  x^2 - y^2}",
       equations:[
-        {e:"\\sqrt{ 36 -  x^2 - y^2}",c:0x9988ff}, {e:"-\\sqrt{36-x^2-y^2}",c:0x44ff55}
-      ]
+        {e:"\\sqrt{11-x^2-6x-9-y^2}",c:'#ff6688'},{e:"\\sqrt{11-x^2+6x-9-y^2}",c:'#ff6688'}, {e:"2\\sqrt{x^2+y^2}-10",c:'#ff6688'}
+      ],
+      graphKey: Date.now()
     }
   },
   methods:{
@@ -91,6 +98,9 @@ export default {
     brutePoints,
     hexToString(hex){
       return "#"+hex.toString(16);
+    },
+    stringToHex(string){
+      return parseInt(string.slice(1), 16)
     }
   },
   computed:{
@@ -99,9 +109,10 @@ export default {
       return {x,y}
     },
     pointSets(){
+
         return this.equations.map(({e, c})=>{
           const [x,y] =  this.brutePoints(e)
-          return {x,y,c}
+          return {x,y,c:this.stringToHex(c)}
 
         })
     }
@@ -116,5 +127,9 @@ export default {
 
 .v-main{
   padding-left:64px !important;
+}
+
+.v-navigation-drawer{
+  width:350px !important;
 }
 </style>
