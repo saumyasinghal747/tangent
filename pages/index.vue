@@ -40,7 +40,7 @@ stateless
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-app-bar-nav-icon>
-        <img class='' :src='Favicon'/>
+        <img class='' height='47px' :src='Favicon'/>
       </v-app-bar-nav-icon>
       <v-toolbar-title class='ml-3' v-text="title" />
       <v-spacer />
