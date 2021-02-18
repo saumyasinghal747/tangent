@@ -1,3 +1,5 @@
+# Tangent - 3D Graphing Calculator
+
 ## Inspiration
 Whenever we want a graphing calculator, the go-to site is generally [Desmos](https://desmos.com/).
 This year, I took Analysis at school, and during class, we often had to graph in 3D.
