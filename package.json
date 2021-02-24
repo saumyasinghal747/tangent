@@ -10,7 +10,7 @@
     "deploy": "gh-pages -d dist -t true"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^2.0.1",
+    "@nuxt/typescript-runtime": "^2.0.2",
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.8.3",
     "dat.gui": "^0.7.7",
