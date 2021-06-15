@@ -2,7 +2,7 @@ import latex_to_js from "./latex-to-js"
 import { evaluate, parse, simplify, complex, min, max } from "mathjs"
 import * as assert from "assert"
 
-export default function brutePoints(latex, step=0.1) {
+export default function brutePoints(latex, step=0.04) {
   // we assume the bounds to be -4, 4 and the y bounds to be the same
   console.log("================",latex,"================")
   // check if its saved

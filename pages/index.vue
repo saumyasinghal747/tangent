@@ -92,7 +92,7 @@ export default {
       title: 'Tangent',
       e:"\\sqrt{ 36 -  x^2 - y^2}",
       equations:[
-        {e:"\\sqrt{11-x^2-6x-9-y^2}",c:'#ff6688'},{e:"\\sqrt{11-x^2+6x-9-y^2}",c:'#ff6688'}, {e:"2\\sqrt{x^2+y^2}-10",c:'#ff6688'}
+        {e:"-x^{y}",c:'#4caf50'},{e:"x^{2}+y^{2}",c:'#2b9ed2'}, {e:"-y^{x}",c:'#673ab7'}
       ],
       graphKey: Date.now()
     }
@@ -114,11 +114,11 @@ export default {
     },
     pointSets(){
 
-        return this.equations.map(({e, c})=>{
+        return [] /* this.equations.map(({e, c})=>{
           const [x,y] =  this.brutePoints(e)
           return {x,y,c:this.stringToHex(c)}
 
-        })
+        })*/
     }
   }
 }

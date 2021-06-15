@@ -28,6 +28,21 @@
                 <oimo-body :options="{ move: false, density: 1 }">
                   <!-- the axes -->
                   <cube ></cube>
+                  <!-- playing around with parametric geometry --->
+                  <mesh >
+                    <Material
+                      :options="materialOptions"
+                    :color="0x28a745"
+                    type="MeshNormal"
+                    />
+                    <Geometry  type="Parametric" :args="[(u,v,p)=>{
+                      p.setX(u*20-10);
+                      p.setY(v*20-10)
+                    p.setZ(Math.pow(36-p.x*p.x-p.y*p.y, 1/2))
+
+                  },100,100000]"></Geometry>
+                  </mesh>
+
                   <!--gonna need a for-loop for those lines!-->
                   <div v-for='({x,y,c}, s) of pointSets' :key='s'>
                     <Line3DChain
@@ -57,7 +72,9 @@
 </template>
 
 <script>
-import Cube from '@/components/Cube.vue'
+import Cube from '@/components/Cube.vue';
+import * as THREE from 'three';
+
 export default {
   components: { Cube },
   props: {
@@ -75,21 +92,27 @@ export default {
       size: {
         w: window.innerWidth,
         h: window.innerHeight
+      },
+      materialOptions: {
+        color:2664261,
+        side:THREE.DoubleSide,
+        opacity:0.6,
+        transparent: true
       }
     }
   },
   created() {
     // hack: loop animation via vue key prop
-    /*setInterval(() => {
+    setInterval(() => {
       this.ui.sysKey += 1
-    }, 7000)*/
+    }, 7000)
   },
   methods: {
     getModel() {
       const ui = {
         camera: {
-          x: -10,
-          y: 1,
+          x: 20,
+          y: 20,
           z: 8
         },
         ocean: {
@@ -97,7 +120,8 @@ export default {
         },
         sf03: {
           scale: 1
-        }
+        },
+
       }
       return ui
     },
