@@ -3,6 +3,7 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  //ssr: false,
   generate: {
     fallback: "404.html"
   },
@@ -27,7 +28,6 @@ export default {
       {src:'https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'}
     ]
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],

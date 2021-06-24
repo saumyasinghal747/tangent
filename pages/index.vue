@@ -67,6 +67,7 @@ stateless
 </template>
 
 <script>
+
 import * as Favicon from '~/static/favicon.svg'
 import generatePoints from '~/plugins/generatePoints';
 import brutePoints from '~/plugins/brutePoints'

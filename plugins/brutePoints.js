@@ -1,7 +1,7 @@
 import latex_to_js from "./latex-to-js"
 import { evaluate, parse, simplify, complex, min, max } from "mathjs"
 import * as assert from "assert"
-
+import Graphame  from 'grapheme/build/grapheme'
 export default function brutePoints(latex, step=0.1) {
   // we assume the bounds to be -4, 4 and the y bounds to be the same
   console.log("================",latex,"================")
