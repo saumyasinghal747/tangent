@@ -18,7 +18,7 @@ export default function brutePoints(latex, step=0.1) {
   let f
   try {
     input = latex_to_js(latex)
-    f = simplify(parse(input))
+    f =  Grapheme.compileNode(Grapheme.parseString(input).resolveTypes()) //simplify(parse(input))
     let tester = f.evaluate({ x: 0, y: 0 }) // lol just bear with me
     assert(latex)
   } catch (e) {

@@ -18,7 +18,7 @@ export default {
       { name:'og:title', hid:'og:title',content: 'Tangent - 3D Graphing Calculator'},
       { name:'og:description', hid:'og:description', content:'A 3D graphing calculator that will serve your 3D graphing needs.'},
       { name:'og:image',hid:'og:image', content:'/tangentflower.png'},
-      { name: 'og:site_name',hid:'og:site_name', content: 'Tangent - YMath.io'}
+      { name: 'og:site_name',hid:'og:site_name', content: 'Tangent - YMath.io'},
     ],
     link: [
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },
@@ -90,5 +90,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['grapheme']
   }
 }
