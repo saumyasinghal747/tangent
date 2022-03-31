@@ -8288,10 +8288,10 @@ thread-loader@^2.1.3:
     loader-utils "^1.1.0"
     neo-async "^2.6.0"
 
-three@^0.125.2:
-  version "0.125.2"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.125.2.tgz#dcba12749a2eb41522e15212b919cd3fbf729b12"
-  integrity sha512-7rIRO23jVKWcAPFdW/HREU2NZMGWPBZ4XwEMt0Ak0jwLUKVJhcKM55eCBWyGZq/KiQbeo1IeuAoo/9l2dzhTXA==
+three@^0.139.1:
+  version "0.139.1"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.139.1.tgz#1603d6d1f33b6cef44b15b4f859c7b4ca6774efb"
+  integrity sha512-7mV5mk7k9CyNnRBXBo8VDWw0haONMh+czKfGFCaYhKq79br2z+4TxZe4JurM6/IGsLU3VaP8CydfDsifvZvg8w==
 
 through2@^2.0.0, through2@^2.0.2:
   version "2.0.5"
