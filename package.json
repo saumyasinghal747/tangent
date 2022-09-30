@@ -22,7 +22,7 @@
     "mathquill": "^0.10.1-a",
     "nuxt": "^2.14.12",
     "oimo": "^1.0.9",
-    "three": "^0.125.2",
+    "three": "^0.145.0",
     "vue-threejs": "^0.2.0-alpha.1"
   },
   "devDependencies": {
